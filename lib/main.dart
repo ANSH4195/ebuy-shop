@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
         routes: {
           ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
         },
+        debugShowCheckedModeBanner: false,
       ),
     );
   }

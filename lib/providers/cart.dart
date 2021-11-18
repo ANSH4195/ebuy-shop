@@ -4,7 +4,7 @@ class CartItem {
   final String id;
   final String title;
   final int quantity;
-  final int price;
+  final double price;
 
   CartItem({
     required this.id,
@@ -21,7 +21,11 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
-  void addItem(String productId, int price, String title) {
+  int get itemCount {
+    return _items.length;
+  }
+
+  void addItem(String productId, double price, String title) {
     if (_items.containsKey(productId)) {
       _items.update(
         productId,
@@ -43,5 +47,6 @@ class Cart with ChangeNotifier {
         ),
       );
     }
+    notifyListeners();
   }
 }
